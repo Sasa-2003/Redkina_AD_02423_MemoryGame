@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
         int screenWidth = getResources().getDisplayMetrics().widthPixels;
         int cardWidth = screenWidth / 4;
-        int cardHeight = (int) (cardWidth * 1.5f); // прямоугольник 3:2
+        int cardHeight = (int) (cardWidth * 1.5f); 
 
         for (int i = 0; i < TOTAL_PAIRS * 2; i++) {
             ImageView imageView = new ImageView(this);
@@ -96,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
             isProcessing = true;
 
             if (cardValues.get(firstCardIndex).equals(cardValues.get(secondCardIndex))) {
-                // ✅ Совпадение: пауза → исчезновение
                 new Handler().postDelayed(() -> {
                     cardViews.get(firstCardIndex).setVisibility(View.INVISIBLE);
                     cardViews.get(secondCardIndex).setVisibility(View.INVISIBLE);
@@ -111,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }, 1000);
             } else {
-                // ❌ Нет совпадения: пауза → закрытие
                 new Handler().postDelayed(() -> {
                     cardViews.get(firstCardIndex).setImageResource(R.drawable.back);
                     cardViews.get(secondCardIndex).setImageResource(R.drawable.back);
